@@ -1,0 +1,40 @@
+.mt-6{
+	margin-top: 3.5rem;
+}
+
+.mt-7{
+	margin-top: 4rem;
+}
+.mt-8{
+	margin-top: 4.5rem;
+}
+.mt-9{
+	margin-top: 5rem;
+}
+.mt-10{
+	margin-top: 5.5rem;
+}
+
+.rowrow {
+
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+.padpad {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.padpad1 {
+	padding-left: 10px;
+	padding-right: 0px;
+}
+
+
+.blackh2 {
+	color:black;
+}
