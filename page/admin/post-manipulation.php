@@ -10,21 +10,21 @@
 	<?php include '../../includes/link/css_link.php'?>
 	<title>Post Manipulation</title>
 	<style>
+
 		.sidebar {
 		  width: 247px;
 		  position: fixed;
 		  z-index: 	1;
-		  top: 4rem;
+		  top: 3.5rem;
 		  left: 0px;
 		  padding-left: 10px;
 		  background: #191c20;
 		  overflow-x: hidden;
 		  padding: 8px 0;
-		  max-height: 50rem;
+		  height: 100%;
 		  color:#fff;
 
 		}
-		<script src="https://use.fontawesome.com/dc48c8c24e.js"></script>
 
 		.content-wrapper {
 			background-color: #2e2f32;
@@ -46,7 +46,9 @@
 		    border-radius: 10px;
 		}
 
-
+		div.content-wrapper div.content-item div.div-bar{
+			border-right: 5px solid #fff;"
+		} 
 	</style>
 </head>
 <body class="landing-page sidebar-collapse">
@@ -82,71 +84,84 @@
 	<div class="content-wrapper ">
 		<div class="content-item">
 			<div class="row p-3">				
-				<div class="col-sm-4">
+				<div class="col-sm-4 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-6 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
-				<i class="fas fa-pen" style="font-size:30px;color:lightblue;text-shadow:2px 2px 4px #fff;"></i>
-				<i class="fas fa-trash-alt" style="font-size:30px;color:#d53f3a;"></i>
+				<div class="col-sm-2">
+					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
+					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
+				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
 				</div>
 			</div>
 		</div>
 		<div class="content-item">
 			<div class="row p-3">				
-				<div class="col-sm-4">
+				<div class="col-sm-4 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-6 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+				<div class="col-sm-2">
+					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
+					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
+				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
 				</div>
 			</div>
 		</div>
 		<div class="content-item">
 			<div class="row p-3">				
-				<div class="col-sm-4">
+				<div class="col-sm-4 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-6 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
-<ion-icon src="/path/to/external/file.svg"></ion-icon>
+				<div class="col-sm-2">
+					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
+					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
+				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
 				</div>
 			</div>
 		</div>
 		<div class="content-item">
 			<div class="row p-3">				
-				<div class="col-sm-4">
+				<div class="col-sm-4 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-6 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 				</div>
-				<div class="col-sm-4">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+				<div class="col-sm-2">
+					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
+					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
+				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
 				</div>
 			</div>
 		</div>
 
-	</div>
-
-	<?php include '../../includes/link/js_link.php'?>
 	<?php include '../../includes/footer.php'?>
+	</div>
+<!-- END CONTENT WRAPPER -->
+	<?php include '../../includes/link/js_link.php'?>
 </body>
 </html>
