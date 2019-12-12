@@ -11,6 +11,34 @@
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <?php include '../../includes/link/css_link.php'?>
+<style>
+    
+.ml15 {
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml15 .word {
+  display: inline-block;
+  line-height: 1em;
+  font-family: 'Bevan', cursive;
+}
+
+.ml12 {
+  font-weight: 200;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+</style>
 </head>
 
 <body class="landing-page sidebar-collapse">
@@ -19,26 +47,52 @@
 
     <div class="wrapper">
         <div class="page-header">
-          <div class="page-header-image" data-parallax="true" style="background-image: url('../../assets/img/local.jpg');">
+          <div class="page-header-image" data-parallax="true">
+            <video autoplay muted loop id="myVideo" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%;">
+                <source src="../../assets/video/local.mp4" type="video/mp4">
+            </video>
           </div>
-            <div class="content-center">
-                <h1 class="title ">Local HipHop Music Channel</h1>
-                <div class="text-center">
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                        <i class="fab fa-google-plus"></i>
-                    </a>
-                </div>
+            <div class="content-center col-sm-8">
+                <h1 class="ml15">
+                    <span class="word">Local</span>
+                    <span class="word">HipHop</span>
+                </h1>
+                <h1 class="ml15">
+                    <span class="word">Music</span>
+                </h1>
+            </div>
+            <div class="content-center col-sm-9">
+                <h1 class="ml12">Support the Local Artists
+                </h1>
             </div>
         </div>
 
         <div class="section section-about-us">
-            <div class="content row">
+            <div class="container-fluid">
+                <div class="row justify-content-between jumbotron" style="background-image: url('../../assets/img/jumbutron.jpg');">
+                    <div class="card col-md-3">
+                        <img class="card-img-top" src="../../assets/img/hiphop_card.png" alt="Card image cap">
+                        <div class="card-body">
+                            LOCAL is a community and platform that promotes local music from underground artists. We started back in 2017 and our vision is to put local artists on the pedestal to be successful and be heard by a wider audience.
+                        </div>
+                    </div>
+                    <div class="card col-md-3">
+                        <img class="card-img-top" src="../../assets/img/hiphop_card2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            We will continue to work with only the best! Be on the look out for new exciting releases and projects that we will drop in the future!
+                        </div>
+                    </div>
+                    <div class="card col-md-3">
+                        <img class="card-img-top" src="../../assets/img/hiphop_card.png" alt="Card image cap">
+                        <div class="card-body">
+                            LOCAL is a community and platform that promotes local music from underground artists. We started back in 2017 and our vision is to put local artists on the pedestal to be successful and be heard by a wider audience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="container-fluid content row">
+
                 <div id="carouselExampleIndicators" class="carousel slide col-lg-8" data-aos="fade-right"  data-ride="carousel" >
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -88,7 +142,7 @@
                 </div>
 
 
-                <div class="container border border-secondary col-lg-3 col-md-8" data-aos="fade-left">
+                <div class="container border border-secondary col-lg-4" data-aos="fade-left">
                     <h2 class="title " style="margin: 0px">Latest Release</h2>
                     <div class="ad column">
 
