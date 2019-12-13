@@ -26,6 +26,24 @@
 
 		}
 
+		div.sidebar i.nav-link {
+			color: #fff;
+			padding-left: 10px;
+			padding-right: 8px;
+		}
+
+		div.sidebar a {
+			color: #fff;
+			border-bottom: 1.5px solid #2e2f32;
+		}
+
+		/* Style the active class, and buttons on mouse-over */
+		.active, li.nav-item:hover {
+		  background-color: #2e2f32;
+		  color: #191c20;
+
+
+		}
 		.content-wrapper {
 			background-color: #2e2f32;
 			margin-left: 247px;
@@ -69,19 +87,39 @@
 <!-- START SIDE BAR-->
 	<div class="sidebar">
 		<div class="p-3">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<div class="navbar-collapse">
+				<ul class="navbar-nav justify-content-start">
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-link fas fa-home" style="font-size: 1.3rem; color:#3a8dd5;"></i>
+							HOME
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-link far fa-user-circle" style="font-size: 1.3rem; color:#39b137;"></i>
+							PROFILE
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-link fas fa-tasks" style="font-size: 1.3rem; color:#d48044;"></i>
+							BLOG
+						</a>
+					</li>
+					<!-- this is the overlap hidder -->
+					<li>
+					</li>
+					<!-- this is the overlap hidder -->
+				</ul>
+			</div>
 		
 		</div>
 	</div>
 <!-- END SIDE BAR -->
 
 
-	<div class="content-wrapper ">
+	<div class="content-wrapper">
 		<div class="content-item">
 			<div class="row p-3">				
 				<div class="col-sm-4 div-bar">
