@@ -4,55 +4,53 @@
 	<?php include '../../includes/link/css_link.php'?>
 
 	<title></title>
+	
 </head>
+
+<body style="background-image: url('../../assets/img/local.jpg'); background-size: cover;">
+	<div class="container-fluid">
+		<div class="row justify-content-around mt-5">
+		<form class="col-md-4" style="background-color: #ffffff; border-radius: 20px;">
+			<h2 class="text-center">LogIn</h2>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			</div>
+			<div class="form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" value="">
+					Option one is this
+					<span class="form-check-sign">
+						<span class="check"></span>
+					</span>
+				</label>
+			</div>
+			<button type="submit" class="btn btn-info">Submit</button>
+		</form>
+
+		<form class="col-md-5" style="background-color: #ffffff; border-radius: 20px;">
+			<h2 class="text-center">Create a New Account</h2>
+			<h4>It's Quick and easy.</h4>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Password</label>
+			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		</div>
+			<small class="muted">By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.</small>
+			<br>
+		<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+		</div>
+	</div>
 	
-<body>
-	<div class="wrapper">
-		<div class="page-header">
-			<div class="page-header-image" data-parallax="true" style="background-image: url('../../assets/img/local.jpg');">
-
-          	</div>
-
-            <div class="blackh2">
-                <div class="section mt-9 row">
-                	<div class="container col-sm-3">
-						<form action="login.php" method="POST"><h2>Log In</h2>
-							Username: <input class="form-control" type="text" name="username" placeholder="Enter your Username" autocomplete="off" required>
-							Password: <input class="form-control" type="text" name="password" placeholder="Enter your Password" autocomplete="off" required>
-							<input class="btn btn-success" type="login" name="login" value="Log in">
-						</form>
-					</div>
-					<div class="container col-sm-5">	
-						<form action="login.php" method="POST"><h2>Sign Up</h2>
-							<div class="rowrow">
-								<div class="col-sm-6 padpad">
-									First Name: <input class="form-control" type="text" name="name" placeholder="First name" autocomplete="off" required>
-								</div>
-								<div class="col-sm-6 padpad1">
-									Last Name: <input class="form-control" type="text" name="name" placeholder="Last name" autocomplete="off" required>
-								</div>
-							
-									Email-address: <input class="form-control" type="text" name="name" placeholder="Email Address" autocomplete="off" required>
-									Username: <input class="form-control" type="text" name="Username" placeholder="Username" autocomplete="off" required>
-									Password: <input class="form-control" type="text" name="Password" placeholder="Enter your Password" autocomplete="off" required>
-									Confirm Password: <input class="form-control" type="text" name="confirm" placeholder="Confirm your Password" autocomplete="off" required>
-							</div>
-									<input class="btn btn-success" type="submit" name="submit" value="Sign up">
-
-						</form>
-
-					</div>
-            	</div>
-            </div>
-    	</div>
-    </div>
-
-
-	
-	
-
-	
-	<?php include '../../includes/link/js_link.php'?>
-	<?php include '../../includes/footer.php'?>
 </body>
 </html>
+
+	<?php include '../../includes/link/js_link.php'?>
