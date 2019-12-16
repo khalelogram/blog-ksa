@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	 session_start();
 
 // Change this to your connection info.
 

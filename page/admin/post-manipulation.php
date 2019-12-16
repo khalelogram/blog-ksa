@@ -120,31 +120,39 @@
 
 
 	<div class="content-wrapper">
+
+<!-- START OF FIRST ROW -->
+<?php
+	// Include the database configuration file
+	include_once '../../function/config.php';
+
+	// Get images from the database
+	$sql = $con->query("SELECT * FROM post_collector_tbl ORDER BY reg_update DESC");
+
+	if($sql->num_rows > 0){
+	    while($row = $sql->fetch_assoc()){
+	        $imageURL = '../../assets/uploaded-post-img/'.$row["image"];
+
+		echo '<div class="content-item"><div class="row p-3"><div class="col-sm-4 div-bar">';
+
+	    echo'<img src="'.$imageURL.'" alt=""></div>';
+		echo '<div class="col-sm-6 div-bar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div>';
+		echo '<div class="col-sm-2">'
+			 	.'<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>'
+				.	'<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>'
+				.'</div></div></div>';
+	 }
+	}else{ 
+	    echo "<p>No image(s) found...</p>";
+	 } 
+?> 
+
+<!-- END OF THIRD ROW -->
+
 		<div class="content-item">
 			<div class="row p-3">				
 				<div class="col-sm-4 div-bar">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				</div>
-				<div class="col-sm-6 div-bar">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-				</div>
-				<div class="col-sm-2">
-					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
-					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
-				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
-				</div>
-			</div>
-		</div>
-		<div class="content-item">
-			<div class="row p-3">				
-				<div class="col-sm-4 div-bar">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				<img src="../../assets/uploaded-post-img/clem-onojeghuo.jpg" alt="" style="height: 3rem; width: 3rem;">
 				</div>
 				<div class="col-sm-6 div-bar">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -198,8 +206,10 @@
 		</div>
 
 	<?php include '../../includes/footer.php'?>
+
 	</div>
 <!-- END CONTENT WRAPPER -->
 	<?php include '../../includes/link/js_link.php'?>
+
 </body>
 </html>

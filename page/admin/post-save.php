@@ -26,7 +26,7 @@ if(isset($_POST['save'])){
                 // Upload file to server
                 if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
                     // Image db insert sql
-                    $insertValuesSQL .= "('".$id."', '".$fileName."', '".$fileName."', NOW()),";
+                    $insertValuesSQL .= "('".$id."', '".$fileName."', '".$title."', '".$content."')";
                 }else{
                     $errorUpload .= $_FILES['files']['name'][$key].', ';
                 }
@@ -38,12 +38,16 @@ if(isset($_POST['save'])){
         if(!empty($insertValuesSQL)){
             $insertValuesSQL = trim($insertValuesSQL,',');
             // Insert image file name into database
-            $insert = $con->query("INSERT INTO post_collector_tbl (user_id, image, title, post_content) VALUES ($id, $fileName, $title, $content)");
+            $insert = $con->query("INSERT INTO post_collector_tbl (user_id, image, title, post_content) VALUES $insertValuesSQL");
             if($insert){
                 $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
                 $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
                 $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
                 $statusMsg = "Files are uploaded successfully.".$errorMsg;
+                echo "<script>
+                alert('There are no fields to generate a report');
+                window.location.href='post-manipulation.php';
+                </script>";
             }else{
                 $statusMsg = "Sorry, there was an error uploading your file.";
             }
