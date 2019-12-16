@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 08:00 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Dec 12, 2019 at 02:20 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `post_collector_tbl` (
   `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(25) NOT NULL,
   `image` varchar(255) NOT NULL,
   `post_content` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
