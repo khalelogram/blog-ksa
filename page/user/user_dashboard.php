@@ -12,7 +12,22 @@
     <?php include '../../includes/link/css_link.php'?>
 </head>
 <body>
-	<?php include '../../includes/navbar.php' ?>
+	<?php include '../../includes/navbar-user.php' ?>
+
+<style>
+	.card {
+		background-color:rgba(255, 255, 255, 0.3)
+	}
+	.card-title {
+		color: white;
+	}
+	.card-text {
+		color: white;
+	}
+	#loadMore{
+		background-color:rgba(255, 255, 255, 0.3)
+	}
+</style>
 
 	<div class="section row" style="background-color: black;">
 		<!-- Latest News -->
@@ -30,7 +45,6 @@
 					<h5 class="card-title">Card title</h5>
 					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. <button type="button" class="btn btn-secondary">Read more</button></p> 
 					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
 					</div>
 			</div>
 			<div class="card">
@@ -63,76 +77,110 @@
 					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 					</div>
 			</div>
-			<button type="button" class="btn btn-secondary btn-lg btn-block">Load More</button>
+			<button type="button" id="loadMore" class="btn btn-secondary btn-lg btn-block">Load More</button>
 		</div>
 		<!-- End Latest News -->	
 	</div>
 
 	<!-- Sidebar -->
 	<div id="sidebar" class="w-25" style="position: absolute; right: 0; top: 0; width: 200px; padding: 10px;">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- Latest Release -->
+		<h3 align="Center" style="margin: 0px; color: #ffffff;">Latest Release</h3>
+			<div class="ad column" style="margin-top: 0px;margin-bottom: 30px;">
+				<div class="ad row" style="margin-top: 15px">
+					<div class="ad-image col-sm-4" >
+					<img src="../../assets/img/clr.jpg" alt="Thumbnail Image" class="rounded-circle img-raised">
+					</div>
+					<div class="ad-about col-sm-8" style="padding: 0px">
+					<p class="" style="margin-bottom: 0px;color: #ffffff; ">CLR</p>
+					<div class="typography-line" style="padding-left: 0px; margin-bottom: 0px;color: #ffffff;">"A STARVING ARTIST"</div>
+					<button class="btn btn-primary btn-icon btn-round" type="button" style="margin: 0px">
+					<i class='fas fa-headphones' style='font-size:22px'></i>
+					</button>
+					</div>
+				</div>
+
+				<div class="ad row" style="margin-top: 15px">
+					<div class="ad-image col-sm-4">
+					<img src="../../assets/img/waiian.jpg" alt="Thumbnail Image" class=" rounded-circle img-raised">
+					</div>
+					<div class="ad-about col-sm-8" style="padding: 0px">
+					<p class="" style="margin-bottom: 0px; color: #ffffff;">Waiian</p>
+					<div class="typography-line" style="padding-left: 0px; margin-bottom: 0px; color: #ffffff;">"SOLO MISSION"</div>
+					<button class="btn btn-primary btn-icon btn-round" type="button" style="margin: 0px">
+					<i class='fas fa-headphones' style='font-size:22px'></i>
+					</button>
+					</div>
+				</div>
+			</div>
+		<!-- End Latest Release -->
+
 		<!-- Popular News -->
-		<br>
-		<br>
-		<br>
 		<h3 align="Center" style="color: white;">Popular News</h3>
-		<div class="card" style="width: 18rem; margin-bottom: 15px;">
-			<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
-				<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
-				<h5 class="card-title">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
+			<div class="card" style="width: 18rem; margin-bottom: 15px;">
+				<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
+					<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
+					<h5 class="card-title">Card title</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="card" style="width: 18rem; margin-bottom: 15px;">
-			<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
-				<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
-				<h5 class="card-title">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
+			<div class="card" style="width: 18rem; margin-bottom: 15px;">
+				<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
+					<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
+					<h5 class="card-title">Card title</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="card" style="width: 18rem; margin-bottom: 15px;">
-			<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
-				<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
-				<h5 class="card-title">Card title</h5>
-				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
+			<div class="card" style="width: 18rem; margin-bottom: 15px;">
+				<div class="card-body" style="background-image: url('../../assets/img/news6.jpg');background-size: cover;">
+					<div class="container" style="background-color:rgba(255, 255, 255, 0.3)">
+					<h5 class="card-title">Card title</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Card link</a>
+					<a href="#" class="card-link">Another link</a>
+					</div>
 				</div>
 			</div>
-		</div>
 		<!-- End Popular News -->
 
 		<h3 align="Center" style="color: white;">Local Merch</h3>
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style=" margin-bottom: 15px;" >
-			<ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			</ol>
-			<div class="carousel-inner">
-			<div class="carousel-item active">
-			<img src="../../assets/img/tshirt/1.1.jpg" class="d-block w-100" alt="...">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style=" margin-bottom: 15px;" >
+				<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				</ol>
+				<div class="carousel-inner">
+				<div class="carousel-item active">
+				<img src="../../assets/img/tshirt/1.1.jpg" class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+				<img src="../../assets/img/tshirt/1.2.jpg" class="d-block w-100" alt="...">
+				</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+				</a>
 			</div>
-			<div class="carousel-item">
-			<img src="../../assets/img/tshirt/1.2.jpg" class="d-block w-100" alt="...">
-			</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-			</a>
-		</div>
 		<!-- footer -->	
 		<?php include '../../includes/footer.php' ?>
 		<!-- end footer -->
@@ -183,8 +231,9 @@
 		        lastA = a;
 		    });
 		}
-		fixMe("#sidebar");
+			fixMe("#sidebar");
 </script>
+
 
 
 </body>
