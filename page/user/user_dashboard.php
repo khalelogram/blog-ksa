@@ -1,3 +1,10 @@
+<?php  
+ $connect = mysqli_connect("localhost", "root", "", "testing");  
+ $sql = "SELECT * FROM tbl_video LIMIT 3";  
+ $result = mysqli_query($connect, $sql);  
+ $video_id = '';  
+?> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,57 +34,44 @@
 	#loadMore{
 		background-color:rgba(255, 255, 255, 0.3)
 	}
+	.btn-success:hover{
+		
+	}
 </style>
 
 	<div class="section row" style="background-color: black;">
-		<!-- Latest News -->
-		<div class="container main-content col-lg-8 col-md-8 col-xs-8" style="margin-left: 50px;">
+		<!-- Latest News-->
+		<div class="container main-content col-lg-8 col-md-8 col-xs-8" id="load_data_table" style="margin-left: 50px;">
 			<br>
 			<br>
 			<div class="heading row">
 				<img src="../../assets/img/ico.png" style="height: 50px;"><h1 style="color: white;">atest News</h1>
 			</div>
-			<div class="card">
+				<?php  
+				while($row = mysqli_fetch_array($result))  
+				{  
+				?>  
+
+				<div class="card">
 				<div class="inner">
-  				<img src="../../assets/img/news6.jpg" class="card-img-top " style="height: 300px;object-fit: cover;">
-  				</div>
-					<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. <button type="button" class="btn btn-secondary">Read more</button></p> 
-					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-			</div>
-			<div class="card">
-				<div class="inner">
-  				<img src="../../assets/img/news6.jpg" class="card-img-top" style="height: 300px;object-fit: cover;">
-  				</div>
-					<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-			</div>
-			<div class="card">
-				<div class="inner">
-  				<img src="../../assets/img/news6.jpg" class="card-img-top" style="height: 300px;object-fit: cover;">
-  				</div>
-					<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-			</div>
-			<div class="card">
-				<div class="inner">
-  				<img src="../../assets/img/news6.jpg" class="card-img-top" style="height: 300px;object-fit: cover;">
-  				</div>
-					<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-			</div>
-			<button type="button" id="loadMore" class="btn btn-secondary btn-lg btn-block">Load More</button>
+				<img src="../../assets/img/news6.jpg" class="card-img-top " style="height: 300px;object-fit: cover;">
+				</div>
+				<div class="card-body">
+				<h5 class="card-title"><?php echo $row["video_title"]; ?> </h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. <button type="button" class="btn btn-secondary">Read more</button></p> 
+				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+				</div>
+
+
+
+				<?php  
+				$video_id = $row["video_id"];  
+				}  
+				?>  
+				<div id="remove_row">  
+				<div><button type="button" name="btn_more" data-vid="<?php echo $video_id; ?>" id="btn_more" class="btn btn-success form-control">Load More</button></div>  
+				</div>  
 		</div>
 		<!-- End Latest News -->	
 	</div>
@@ -234,6 +228,32 @@
 			fixMe("#sidebar");
 </script>
 
+<script>  
+	 $(document).ready(function(){  
+	      $(document).on('click', '#btn_more', function(){  
+	           var last_video_id = $(this).data("vid");  
+	           $('#btn_more').html("Loading...");  
+	           $.ajax({  
+	                url:"load_data.php",  
+	                method:"POST",  
+	                data:{last_video_id:last_video_id},  
+	                dataType:"text",  
+	                success:function(data)  
+	                {  
+	                     if(data != '')  
+	                     {  
+	                          $('#remove_row').remove();  
+	                          $('#load_data_table').append(data);  
+	                     }  
+	                     else  
+	                     {  
+	                          $('#btn_more').html("No Data");  
+	                     }  
+	                }  
+	           });  
+	      });  
+	 });  
+</script>
 
 
 </body>
