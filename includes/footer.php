@@ -4,17 +4,17 @@
         <nav>
           <ul>
             <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
+              <a href="https://www.facebook.com/localmusicph">
+                Local
               </a>
             </li>
             <li>
-              <a href="http://presentation.creative-tim.com">
+              <a href="https://www.facebook.com/localmusicph">
                 About Us
               </a>
             </li>
             <li>
-              <a href="http://blog.creative-tim.com">
+              <a href="https://www.youtube.com/localmusicph">
                 Blog
               </a>
             </li>
@@ -25,8 +25,8 @@
           <script>
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
           </script>, Designed by
-          <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+          <a href="https://www.kalskillsakademie.training" target="_blank">Kal Skills Akademie</a>. Coded by
+          <a href="" target="_blank">Group 2</a>.
         </div>
       </div>
     </footer>
