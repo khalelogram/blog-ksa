@@ -127,19 +127,20 @@
 	include_once '../../function/config.php';
 
 	// Get images from the database
-	$sql = $con->query("SELECT * FROM post_collector_tbl ORDER BY reg_update DESC");
+	$sql = $con->query("SELECT * FROM post_collector_tbl");
 
 	if($sql->num_rows > 0){
 	    while($row = $sql->fetch_assoc()){
 	        $imageURL = '../../assets/uploaded-post-img/'.$row["image"];
+	        $rowid = $row['id'];
 
 		echo '<div class="content-item"><div class="row p-3"><div class="col-sm-4 div-bar">';
 
 	    echo'<img src="'.$imageURL.'" alt=""></div>';
 		echo '<div class="col-sm-6 div-bar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div>';
 		echo '<div class="col-sm-2">'
-			 	.'<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>'
-				.	'<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>'
+			 	.'<a href="post-edit.php?id='.$rowid.'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</a>'
+				.	'<a href="post-delete.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE'.$rowid.'</a>'
 				.'</div></div></div>';
 	 }
 	}else{ 
@@ -210,6 +211,25 @@
 	</div>
 <!-- END CONTENT WRAPPER -->
 	<?php include '../../includes/link/js_link.php'?>
+
+<?php
+	// function delete(){
+	// 	// sql to delete a record
+	// 	$sql = "DELETE FROM post_collector_tbl WHERE id = $rowid";
+
+	// 	if ($conn->query($sql) === TRUE) {
+	// 	    echo "Record deleted successfully";
+	// 	} else {
+	// 	    echo "Error deleting record: " . $conn->error;
+	// 	}
+
+	// 	$conn->close();
+	// }
+
+	// if(isset($_GET[$rowid])){
+	// 	delte();
+	// }
+?>
 
 </body>
 </html>

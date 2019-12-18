@@ -45,7 +45,7 @@ if(isset($_POST['save'])){
                 $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
                 $statusMsg = "Files are uploaded successfully.".$errorMsg;
                 echo "<script>
-                alert('There are no fields to generate a report');
+                alert('".$statusMsg."');
                 window.location.href='post-manipulation.php';
                 </script>";
             }else{
