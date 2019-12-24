@@ -1,6 +1,5 @@
 <?php
 require_once("config.php");
-require_once("function.php");
 
 function login(){
 	if(isset($_POST['login_submit'])){
@@ -18,7 +17,6 @@ function login(){
 			?>
 			<script type="text/javascript">
 				window.location.href = "index.php";
-
 			</script>
 			<?php
 			}
