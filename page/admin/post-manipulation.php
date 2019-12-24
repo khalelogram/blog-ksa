@@ -66,7 +66,14 @@
 
 		div.content-wrapper div.content-item div.div-bar{
 			border-right: 5px solid #fff;"
-		} 
+		}
+		 .thmb{
+		 	max-height: auto;
+		 	max-width: 60%;
+		 	display: block;
+			margin: auto auto auto auto;
+			margin-top: auto;
+		 }
 	</style>
 </head>
 <body class="landing-page sidebar-collapse">
@@ -104,7 +111,7 @@
 					<li class="nav-item">
 						<a href="#" class="nav-link">
 							<i class="nav-link fas fa-tasks" style="font-size: 1.3rem; color:#d48044;"></i>
-							BLOG
+							BLOG TIMELINE
 						</a>
 					</li>
 					<!-- this is the overlap hidder -->
@@ -134,13 +141,14 @@
 	        $imageURL = '../../assets/uploaded-post-img/'.$row["image"];
 	        $rowid = $row['id'];
 
+
 		echo '<div class="content-item"><div class="row p-3"><div class="col-sm-4 div-bar">';
 
-	    echo'<img src="'.$imageURL.'" alt=""></div>';
-		echo '<div class="col-sm-6 div-bar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div>';
+	    echo'<img src="'.$imageURL.'" alt="" class="thmb"></div>';
+		echo '<div class="col-sm-6 div-bar"><div><h3>'.$row['title'].'</h3></div><div><p>'.$row['post_content'].'</p></div></div>';
 		echo '<div class="col-sm-2">'
 			 	.'<a href="post-edit.php?id='.$rowid.'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</a>'
-				.	'<a href="post-delete.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE'.$rowid.'</a>'
+				.	'<a onclick="javascript:confirmDel($(this));return false;" href="post-delete.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE'.$rowid.'</a>'
 				.'</div></div></div>';
 	 }
 	}else{ 
@@ -156,9 +164,12 @@
 				<img src="../../assets/uploaded-post-img/clem-onojeghuo.jpg" alt="" style="height: 3rem; width: 3rem;">
 				</div>
 				<div class="col-sm-6 div-bar">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+					<div>
+						<h3>Your Title</h3>
+					</div>
+					<div>
+						<p>Lorem</p>
+					</div>
 				</div>
 				<div class="col-sm-2">
 					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
@@ -230,6 +241,13 @@
 	// 	delte();
 	// }
 ?>
-
+<script>
+function confirmDel(anchor)
+{
+   var conf = confirm('Are you sure want to delete this record?');
+   if(conf)
+      window.location=anchor.attr("href");
+}
+</script>
 </body>
 </html>
