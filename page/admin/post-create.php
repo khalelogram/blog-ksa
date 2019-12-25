@@ -135,7 +135,7 @@
 
 				</div>
 				<div>
-					Select images: <input type="file" name="files[]" multiple >
+					Select images: <input type="file" name="image">
 				</div>
 				<div>
 					<input type="submit" name="save" value="Save" class="btn btn-success btn-round">
