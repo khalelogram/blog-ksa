@@ -1,64 +1,64 @@
 <?php
-if(isset($_POST['save'])){
-    // Include the database configuration file
-    include_once '../../function/config.php';
-
-    $id = $_POST['userid'];
+  include_once '../../function/config.php';
+  $upload_dir = '../../assets/uploaded-post-img/';
+  if (isset($_POST['save'])) {
+    $user_id = $_POST['userid'];
     $title = $_POST['title'];
     $content = $_POST['content'];
-    // $tiltle = $_POST['txttitle']
 
-    
-    // File upload configuration
-    $targetDir = "../../assets/uploaded-post-img/";
-    $allowTypes = array('jpg','png','jpeg','gif');
-    
-    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
-    if(!empty(array_filter($_FILES['files']['name']))){
-        foreach($_FILES['files']['name'] as $key=>$val){
-            // File upload path
-            $fileName = basename($_FILES['files']['name'][$key]);
-            $targetFilePath = $targetDir . $fileName;
-            
-            // Check whether file type is valid
-            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-            if(in_array($fileType, $allowTypes)){
-                // Upload file to server
-                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
-                    // Image db insert sql
-                    $insertValuesSQL .= "('".$id."', '".$fileName."', '".$title."', '".$content."')";
-                }else{
-                    $errorUpload .= $_FILES['files']['name'][$key].', ';
-                }
-            }else{
-                $errorUploadType .= $_FILES['files']['name'][$key].', ';
-            }
-        }
-        
-        if(!empty($insertValuesSQL)){
-            $insertValuesSQL = trim($insertValuesSQL,',');
-            // Insert image file name into database
-            $insert = $con->query("INSERT INTO post_collector_tbl (user_id, image, title, post_content) VALUES $insertValuesSQL");
-            if($insert){
-                $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
-                $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
-                $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
-                $statusMsg = "Files are uploaded successfully.".$errorMsg;
-                echo "<script>
-                alert('".$statusMsg."');
+    $imgName = $_FILES['image']['name'];
+		$imgTmp = $_FILES['image']['tmp_name'];
+		$imgSize = $_FILES['image']['size'];
+
+    if(empty($title)){
+			$errorMsg = 'Please insert a Title';
+		}elseif(empty($content)){
+			$errorMsg = 'Please insert Content';
+		// }elseif(empty($email)){
+		// 	$errorMsg = 'Please input email';
+		}else{
+
+			$imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+
+			$allowExt  = array('jpeg', 'jpg', 'png', 'gif');
+
+			$postImg = time().'_'.rand(1000,9999).'.'.$imgExt;
+
+			if(in_array($imgExt, $allowExt)){
+
+				if($imgSize < 5000000){
+					move_uploaded_file($imgTmp ,$upload_dir.$postImg);
+				}else{
+					echo $errorMsg = 'Image too large';
+				}
+			}else{
+				echo $errorMsg = 'Please select a valid image';
+			}
+		}
+
+
+		if(!isset($errorMsg)){
+			$sql = "insert into post_collector_tbl(user_id, image, post_content, title)
+					values('".$user_id."', '".$postImg."', '".$content."', '".$title."')";
+			$result = mysqli_query($con, $sql);
+			if($result){
+				// $successMsg = 'New record added successfully';
+				// header('Location: index.php');
+
+				echo "<script>
+                alert('Successfully Added');
                 window.location.href='post-manipulation.php';
                 </script>";
-            }else{
-                $statusMsg = "Sorry, there was an error uploading your file.";
-            }
-        }
-    }else{
-        $statusMsg = 'Please select a file to upload.';
-    }
-    
-    // Display status message
-    echo $statusMsg;
-}
 
-// echo(basename($targetFilePath));
+			}else{
+				$errorMsg = 'Error '.mysqli_error($con);
+
+				echo "<script>
+                alert('".$errorMsg."');
+                window.location.href='post-manipulation.php';
+                </script>";
+
+			}
+		}
+  }
 ?>

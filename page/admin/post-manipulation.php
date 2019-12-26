@@ -1,3 +1,23 @@
+<?php
+include_once '../../function/config.php';
+
+  if(isset($_GET['id'])){
+ 		$upload_dir = '../../assets/uploaded-post-img/';
+		$id = $_GET['id'];
+		$sql = "select * from post_collector_tbl where id = ".$id;
+		$result = mysqli_query($con, $sql);
+		if(mysqli_num_rows($result) > 0){
+			$row = mysqli_fetch_assoc($result);
+			$image = $row['image'];
+			unlink($upload_dir.$image);
+			$sql = "delete from post_collector_tbl where id=".$id;
+			if(mysqli_query($con, $sql)){
+				echo "<script>alert('Record deleted successfully')window.location.href='post-manipulation.php'</script>";
+			}
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +101,7 @@
 	<div style="background-color: #000000">
 <!-- TOP NAV BAR -->
 		<?php
-			include '../../includes/navbar.php'
+			include '../../includes/navbar-Admin.php'
 		?>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -147,8 +167,8 @@
 	    echo'<img src="'.$imageURL.'" alt="" class="thmb"></div>';
 		echo '<div class="col-sm-6 div-bar"><div><h3>'.$row['title'].'</h3></div><div><p>'.$row['post_content'].'</p></div></div>';
 		echo '<div class="col-sm-2">'
-			 	.'<a href="post-edit.php?id='.$rowid.'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</a>'
-				.	'<a onclick="javascript:confirmDel($(this));return false;" href="post-delete.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE'.$rowid.'</a>'
+			 	.'<a href="post-edit.php?id='.$rowid.'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;" data-toogle="modal" data-target="#editModal">EDIT</a>'
+				.	'<a onclick="javascript:confirmDel($(this));return false;" href="post-manipulation.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</a>'
 				.'</div></div></div>';
 	 }
 	}else{ 
@@ -172,7 +192,7 @@
 					</div>
 				</div>
 				<div class="col-sm-2">
-					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;">EDIT</button>
+					<button class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;" data-toggle="modal" data-target="#myModal">EDIT</button>
 					<button class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</button>
 				<!-- <i class="fas fa-trash-alt" style="font-size: 3.438rem; color:#d53f3a;"></i> -->
 				</div>
@@ -216,12 +236,70 @@
 				</div>
 			</div>
 		</div>
+
+<!-- EDIT MODAL -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+			<form method="POST" action="post-save.php" enctype="multipart/form-data">
+				temporary:<input type="text" name="userid">
+				<div class="d-flex">
+					<h3>TITLE:</h3><input type="text" name="title" class="input-group ml-1 w-50">
+				</div>
+				<div class="d-flex">
+					<h4>YOUR<br>CONTENT:</h4>
+					<textarea class="w-50" name="content">
+					</textarea>
+				</div>
+				<div>
+
+				</div>
+				<div>
+					Select images: <input type="file" name="files[]" multiple >
+				</div>
+				<div>
+					<input type="submit" name="save" value="Save" class="btn btn-success btn-round">
+				</div>
+				
+
+			</form>
+          </div>
+<!--           <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+<!-- EDIT MODAL -->
+
 
 	<?php include '../../includes/footer.php'?>
 
 	</div>
 <!-- END CONTENT WRAPPER -->
+<!-- 	<script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script> -->
 	<?php include '../../includes/link/js_link.php'?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 	// function delete(){
@@ -241,6 +319,14 @@
 	// 	delte();
 	// }
 ?>
+
+
+
+
+
+
+
+
 <script>
 function confirmDel(anchor)
 {

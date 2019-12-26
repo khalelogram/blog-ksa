@@ -1,10 +1,35 @@
 <?php
-    $id = $_POST['userid'];
-    $title = $_POST['title'];
-    $content = $_POST['content'];
 
-    $targetDir = "../../assets/uploaded-post-img/";
-    $allowTypes = array('jpg','png','jpeg','gif');
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($db, "SELECT * FROM info WHERE id=$id");
+
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$name = $n['name'];
+			$address = $n['address'];
+		}
+	}
+
+
+// if (isset($_POST['update'])) {
+// 	$id = $_POST['id'];
+// 	$name = $_POST['name'];
+// 	$address = $_POST['address'];
+
+// 	mysqli_query($db, "UPDATE info SET name='$name', address='$address' WHERE id=$id");
+// 	$_SESSION['message'] = "Address updated!"; 
+// 	header('location: index.php');
+// }
+
+
+    // $id = $_POST['userid'];
+    // $title = $_POST['title'];
+    // $content = $_POST['content'];
+
+    // $targetDir = "../../assets/uploaded-post-img/";
+    // $allowTypes = array('jpg','png','jpeg','gif');
     
 ?>
 
@@ -85,7 +110,7 @@
 	<div style="background-color: #000000">
 <!-- TOP NAV BAR -->
 		<?php
-			include '../../includes/navbar.php'
+			include '../../includes/navbar-Admin.php'
 		?>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
