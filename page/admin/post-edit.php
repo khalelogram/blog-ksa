@@ -1,36 +1,69 @@
 <?php
+  include_once '../../function/config.php';
+  $upload_dir = '../../assets/uploaded-post-img/';
 
-	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
-		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM info WHERE id=$id");
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "select * from post_collector_tbl where id=".$id;
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      // $cont=$row['content'];
+    }else {
+      $errorMsg = 'Could not Find Any Record';
+    }
+  }
 
-		if (count($record) == 1 ) {
-			$n = mysqli_fetch_array($record);
-			$name = $n['name'];
-			$address = $n['address'];
+  if(isset($_POST['save'])){
+    $user_id = $_POST['userid'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+
+		$imgName = $_FILES['image']['name'];
+		$imgTmp = $_FILES['image']['tmp_name'];
+		$imgSize = $_FILES['image']['size'];
+
+		if($imgName){
+
+			$imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+
+			$allowExt  = array('jpeg', 'jpg', 'png', 'gif');
+
+			$postImg = time().'_'.rand(1000,9999).'.'.$imgExt;
+
+			if(in_array($imgExt, $allowExt)){
+
+				if($imgSize < 5000000){
+					unlink($upload_dir.$row['image']);
+					move_uploaded_file($imgTmp ,$upload_dir.$postImg);
+				}else{
+					$errorMsg = 'Image too large';
+				}
+			}else{
+				$errorMsg = 'Please select a valid image';
+			}
+		}else{
+
+			$postImg = $row['image'];
 		}
+
+		if(!isset($errorMsg)){
+			$sql = "update post_collector_tbl set user_id = '".$user_id."', image = '".$postImg."', post_content = '".$content."', title = '".$title."' where id=".$id;
+			$result = mysqli_query($con, $sql);
+			if($result){
+				// $successMsg = 'New record updated successfully';
+				// header('Location:index.php');
+				echo "<script>
+                alert('Successfully Update');
+                window.location.href='post-manipulation.php';
+                </script>";
+			}else{
+				$errorMsg = 'Error '.mysqli_error($conn);
+			}
+		}
+
 	}
 
-
-// if (isset($_POST['update'])) {
-// 	$id = $_POST['id'];
-// 	$name = $_POST['name'];
-// 	$address = $_POST['address'];
-
-// 	mysqli_query($db, "UPDATE info SET name='$name', address='$address' WHERE id=$id");
-// 	$_SESSION['message'] = "Address updated!"; 
-// 	header('location: index.php');
-// }
-
-
-    // $id = $_POST['userid'];
-    // $title = $_POST['title'];
-    // $content = $_POST['content'];
-
-    // $targetDir = "../../assets/uploaded-post-img/";
-    // $allowTypes = array('jpg','png','jpeg','gif');
-    
 ?>
 
 
@@ -157,21 +190,23 @@
 
 	<div class="content-wrapper">
 		<div class="content-item p-3">
-			<form method="POST" action="post-save.php" enctype="multipart/form-data">
-				temporary:<input type="text" name="userid">
+			<form method="POST" action="" enctype="multipart/form-data">
+				temporary:<input type="text" name="userid" value="<?php echo $row['user_id'] ?> ">
 				<div class="d-flex">
-					<h3>TITLE:</h3><input type="text" name="title" class="input-group ml-1 w-50">
+					<h3>TITLE:</h3><input type="text" name="title" class="input-group ml-1 w-50" value="<?php echo $row['title'] ?>">
 				</div>
 				<div class="d-flex">
 					<h4>YOUR<br>CONTENT:</h4>
 					<textarea class="w-50" name="content">
+						<?php echo htmlspecialchars($row['post_content']); ?>
 					</textarea>
 				</div>
 				<div>
 
 				</div>
 				<div>
-					Select images: <input type="file" name="files[]" multiple >
+					<img src="<?php echo $upload_dir.$row['image'] ?>">
+					Select images: <input type="file" name="image" value="" >
 				</div>
 				<div>
 					<input type="submit" name="save" value="Save" class="btn btn-success btn-round">
