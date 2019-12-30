@@ -159,7 +159,7 @@ include_once '../../function/config.php';
 	if($sql->num_rows > 0){
 	    while($row = $sql->fetch_assoc()){
 	        $imageURL = '../../assets/uploaded-post-img/'.$row["image"];
-	        $rowid = $row['id'];
+	        // $rowid = $row['id'];
 
 
 		echo '<div class="content-item"><div class="row p-3"><div class="col-sm-4 div-bar">';
@@ -167,8 +167,8 @@ include_once '../../function/config.php';
 	    echo'<img src="'.$imageURL.'" alt="" class="thmb"></div>';
 		echo '<div class="col-sm-6 div-bar"><div><h3>'.$row['title'].'</h3></div><div><p>'.$row['post_content'].'</p></div></div>';
 		echo '<div class="col-sm-2">'
-			 	.'<a href="post-edit.php?id='.$rowid.'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;" data-toogle="modal" data-target="#editModal">EDIT</a>'
-				.	'<a onclick="javascript:confirmDel($(this));return false;" href="post-manipulation.php?id='.$rowid.'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</a>'
+			 	.'<a href="post-edit.php?id='.$row['id'].'" class="btn btn-info" style="font-size: 1.5rem; color: #fff; width: 100%;" data-toogle="modal" data-target="#editModal">EDIT</a>'
+				.	'<a onclick="javascript:confirmDel($(this));return false;" href="post-manipulation.php?id='.$row['id'].'" class="btn btn-danger" style="font-size: 1.5rem; color: #fff; width: 100%;">DELETE</a>'
 				.'</div></div></div>';
 	 }
 	}else{ 
